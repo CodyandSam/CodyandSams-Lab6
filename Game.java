@@ -1,5 +1,5 @@
 package Lab6;
-
+// Cody Wood 3/9/18 Game Class for Lab6
 public class Game {
 	
 		
