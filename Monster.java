@@ -1,3 +1,5 @@
+//Sam Clement 3/9/2018
+//Monster class for game
 package lab6;
 
 public class Monster {
