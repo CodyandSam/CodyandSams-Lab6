@@ -1,3 +1,6 @@
+//Sam Clement
+//Player class for game
+
 package lab6;
 
 public class player {
