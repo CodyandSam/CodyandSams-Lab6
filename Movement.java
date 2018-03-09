@@ -1,5 +1,5 @@
 package Lab6;
-
+//Cody Wood 3/9/18 Movement Class for Lab6
 public class Movement {
 	private String image;
 	private int Xposition;
