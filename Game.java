@@ -1,5 +1,12 @@
-package Lab6;
-// Cody Wood 3/9/18 Game Class for Lab6
+package Game;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Random;
+import java.util.Scanner;
+
+import Iteration3.Animal;
+
 public class Game {
 	
 		
@@ -9,7 +16,9 @@ public class Game {
 		private static Monster enemy; // This will be the enemy object
 		private static Item item; // This will be the item object
 		
-		public Game(int score, int highScores, player myPlayer, Monster enemy, Item item) {
+		
+		
+		public Game(int score, int highScores, player myPlayer, Monster enemy, Item item, player character) {
 			this.score = score;
 			this.highScores = highScores;
 			this.myPlayer = myPlayer;
@@ -18,13 +27,5 @@ public class Game {
 		
 			
 		}
-		public static void main(String[] arg0) {
-			myPlayer = new player("Name");
-			enemy = new Monster("Monster");
-			item = new Item("Coin", 1);
-			
-			System.out.println(myPlayer.toString());
-			System.out.println(enemy.toString());
-			System.out.println(item.toString());
-		}
+		
 }

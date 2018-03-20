@@ -1,21 +1,45 @@
-package Lab6;
-//Cody Wood 3/9/18 Movement Class for Lab6
-public class Movement {
-	private String image;
+package Game;
+
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+public class Movement implements KeyListener{
+	private String imagePath;
 	private int Xposition;
 	private int Yposition;
 	
-	public Movement(String image, int Xposition, int Yposition) {
-		this.image = image;
+	public Movement(int Xposition, int Yposition, String imagePath) {
+		this.imagePath = imagePath;
 		this.Xposition = Xposition;
 		this.Yposition = Yposition;
 	}
-	
-	public int PlayerMove() {
-		return Xposition;
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		if(e.getKeyCode() == KeyEvent.VK_D) {
+			Xposition += 20;
+		}
+		else if(e.getKeyCode() == KeyEvent.VK_A) {
+			Xposition -= 20;
+		}
+		else if(e.getKeyCode() == KeyEvent.VK_W) {
+			Yposition += 20;
+		}
+		else if(e.getKeyCode() == KeyEvent.VK_S) {
+			Yposition -= 20;
+		}
+		
 	}
-	
-	public int EnemyMove() {
-		return Yposition;
+
+	@Override
+	public void keyReleased(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 }

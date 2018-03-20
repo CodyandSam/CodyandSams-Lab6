@@ -1,10 +1,7 @@
-//Sam Clement 3/9/2018
-//Item class for game
-
-package lab6;
+package Game;
 
 public class Item {
-	
+
 	private String itemType;
 	private int itemValue;
 	
@@ -18,5 +15,4 @@ public class Item {
 		return "I am an item";
 		
 	}
-
 }
