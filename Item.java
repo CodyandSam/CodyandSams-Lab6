@@ -11,8 +11,8 @@ public class Item {
 	public Item(String itemType, int itemValue, int x, int y, String imagePath) {
 		this.itemType = itemType;
 		this.itemValue = itemValue; 
-		this.itemValue = x;
-		this.itemValue = y;
+		this.x = x;
+		this.y = y;
 		this.imagePath = imagePath; 
 		
 	}
