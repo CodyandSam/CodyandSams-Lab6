@@ -25,7 +25,7 @@ public class Panel extends JPanel implements KeyListener{
 	Item1 myItem;
 	ImageIcon myMonsterIcon = new ImageIcon(myMonster.getImagePath());
 	ImageIcon myIcon = new ImageIcon(myPlayer.getImagePath());
-  ImageIcon itemIcon1;
+  	ImageIcon itemIcon1;
 
 	Timer myTimer = new Timer(500, new TimerListener());
 	
