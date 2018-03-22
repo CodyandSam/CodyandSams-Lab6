@@ -47,6 +47,42 @@ public class player {
 		this.imagePath = imagePath;
 	}
 	
+	public void moveUp() {
+		if(getY() <= 0) {
+			setY(0);
+		}
+		else {
+			setY(getY() - 20);
+		}
+	}
+	
+	public void moveDown() {
+		if(getY() >= 755) {
+			setY(755);
+		}
+		else {
+			setY(getY() + 20);
+		}
+	}
+	
+	public void moveRight() {
+		if(getX() >= 755) {
+			setX(755);
+		}
+		else {
+			setX(getX() + 20);
+		}
+	}
+	
+	public void moveLeft() {
+		if(getX() <= 0) {
+			setX(0);
+		}
+		else {
+			setX(getX() - 20);
+		}
+	}
+	
 	public String toString() {
 		return "I am " + getName() + getX() + getY() + getImagePath();
 	}

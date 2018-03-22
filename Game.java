@@ -13,17 +13,15 @@ public class Game {
 		private int score;
 		private int highScores; // this is going to be an array
 		private static player myPlayer; // This will be the player object
-		private static Monster enemy; // This will be the enemy object
-		private static Item item; // This will be the item object
+		private static int items;
 		
 		
 		
-		public Game(int score, int highScores, player myPlayer, Monster enemy, Item item, player character) {
+		public Game(int score, int highScores, player myPlayer, int items) {
 			this.score = score;
 			this.highScores = highScores;
 			this.myPlayer = myPlayer;
-			this.enemy = enemy;
-			this.item = item;
+			
 		
 			
 		}
