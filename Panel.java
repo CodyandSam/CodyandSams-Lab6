@@ -22,7 +22,7 @@ public class Panel extends JPanel implements KeyListener{
 	int min = 50;
 	player myPlayer = new player("Luigi", 100, 100, "./src/Luigi.png");
 	Monster myMonster = new Monster("Bowser", 200, 200, "./src/Bowser.jpg");
-	Item1 myItem;
+	Item myItem1;
 	ImageIcon myMonsterIcon = new ImageIcon(myMonster.getImagePath());
 	ImageIcon myIcon = new ImageIcon(myPlayer.getImagePath());
   	ImageIcon itemIcon1;
