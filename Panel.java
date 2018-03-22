@@ -17,19 +17,35 @@ import javax.swing.Timer;
 
 public class Panel extends JPanel implements KeyListener{
 	
+	
+	
 	Random myRand = new Random();
-  int max = 750;
+	int max = 750;
 	int min = 50;
+	
 	player myPlayer = new player("Luigi", 100, 100, "./src/Luigi.png");
 	Monster myMonster = new Monster("Bowser", 200, 200, "./src/Bowser.jpg");
-	Item myItem1;
+
+	Item myItem1 = new Item("Coin",10,myRand.nextInt((max-min)+min),myRand.nextInt((max-min)+min),"./src/Game/goldCoin.jpg");;
+	int[] itemXarray = new int[30];
+	int[] itemYarray = new int[30];
 	ImageIcon myMonsterIcon = new ImageIcon(myMonster.getImagePath());
 	ImageIcon myIcon = new ImageIcon(myPlayer.getImagePath());
-  	ImageIcon itemIcon1;
+  ImageIcon itemIcon1 = new ImageIcon(myItem1.getImagePath());
 
+
+	
 	Timer myTimer = new Timer(500, new TimerListener());
 	
 	public Panel(){
+		
+		for(int i=0;i<30;i++) {
+			itemXarray[i] = myRand.nextInt((max-min)+min);
+		}
+		for(int i=0;i<30;i++) {
+			itemYarray[i] = myRand.nextInt((max-min)+min);
+		}
+
 		
 		setPreferredSize(new Dimension(800, 800));
 		addKeyListener(this);
@@ -40,15 +56,15 @@ public class Panel extends JPanel implements KeyListener{
 	
 	public void paintComponent(Graphics page) {
 		super.paintComponent(page);
+		
+		 for(int i = 0; i<30;i++) {
+		    	page.drawImage(itemIcon1.getImage(), itemXarray[i], itemYarray[i], 40, 40, null);
 
+		}
+		 
 		page.drawImage(myIcon.getImage(), myPlayer.getX(), myPlayer.getY(), 40, 40, null);
 		page.drawImage(myMonsterIcon.getImage(), myMonster.getX(), myMonster.getY(), 55, 55, null);
-			
-    for(int i = 0; i<30;i++) {
-	    	myItem1 = new Item("Coin",10,myRand.nextInt((max-min)+min),myRand.nextInt((max-min)+min),"./src/Game/goldCoin.jpg");
-		    itemIcon1 = new ImageIcon(myItem1.getImagePath());
-	    	page.drawImage(itemIcon1.getImage(), myItem1.getX(), myItem1.getY(), 40, 40, null);
-		}
+		
 		//borders
 		page.setColor(Color.black);
 		page.fillRect(0, 0, 3, 797);//x y width height
