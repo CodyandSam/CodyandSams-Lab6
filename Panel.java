@@ -25,12 +25,14 @@ public class Panel extends JPanel implements KeyListener{
 	
 	player myPlayer = new player("Luigi", 100, 100, "./src/Luigi.png");
 	Monster myMonster = new Monster("Bowser", 200, 200, "./src/Bowser.jpg");
+
 	Item myItem1 = new Item("Coin",10,myRand.nextInt((max-min)+min),myRand.nextInt((max-min)+min),"./src/Game/goldCoin.jpg");;
 	int[] itemXarray = new int[30];
 	int[] itemYarray = new int[30];
 	ImageIcon myMonsterIcon = new ImageIcon(myMonster.getImagePath());
 	ImageIcon myIcon = new ImageIcon(myPlayer.getImagePath());
-  	ImageIcon itemIcon1 = new ImageIcon(myItem1.getImagePath());
+  ImageIcon itemIcon1 = new ImageIcon(myItem1.getImagePath());
+
 
 	
 	Timer myTimer = new Timer(500, new TimerListener());
