@@ -13,8 +13,6 @@ import javax.swing.JPanel;
 
 public class Panel extends JPanel implements KeyListener{
 	
-//added array for items
-	//Item[] itemArray = new Item[2];
 	
 	//Random number for item X Y
 	Random myRandom = new Random();
