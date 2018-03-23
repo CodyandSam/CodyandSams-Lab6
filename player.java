@@ -5,6 +5,8 @@ public class player {
 	private String name;
 	private int x;
 	private int y;
+	private int hieght;
+	private int width;
 	private String imagePath;
 	
 	public player(String name, int x, int y, String imagePath) {

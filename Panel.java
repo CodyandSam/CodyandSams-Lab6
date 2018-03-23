@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -26,26 +27,26 @@ public class Panel extends JPanel implements KeyListener{
 	player myPlayer = new player("Luigi", 100, 100, "./src/Luigi.png");
 	Monster myMonster = new Monster("Bowser", 200, 200, "./src/Bowser.jpg");
 
-	Item myItem1 = new Item("Coin",10,myRand.nextInt((max-min)+min),myRand.nextInt((max-min)+min),"./src/Game/goldCoin.jpg");;
-	int[] itemXarray = new int[30];
-	int[] itemYarray = new int[30];
+	Item myItem1= new Item("Coin",10,0,0,"./src/Game/goldCoin.jpg");
+	
 	ImageIcon myMonsterIcon = new ImageIcon(myMonster.getImagePath());
 	ImageIcon myIcon = new ImageIcon(myPlayer.getImagePath());
-  ImageIcon itemIcon1 = new ImageIcon(myItem1.getImagePath());
-
-
+	
+	ImageIcon itemIcon1 = new ImageIcon(myItem1.getImagePath());
+	
+	Item[] itemArray = new Item[20];
+	
 	
 	Timer myTimer = new Timer(500, new TimerListener());
 	
 	public Panel(){
+	
 		
-		for(int i=0;i<30;i++) {
-			itemXarray[i] = myRand.nextInt((max-min)+min);
-		}
-		for(int i=0;i<30;i++) {
-			itemYarray[i] = myRand.nextInt((max-min)+min);
-		}
 
+		for(int i=0;i<itemArray.length;i++) {
+			myItem1 = new Item("Coin",10,myRand.nextInt((max-min)+min),myRand.nextInt((max-min)+min),"./src/Game/goldCoin.jpg");;
+			itemArray[i]= myItem1;
+		}
 		
 		setPreferredSize(new Dimension(800, 800));
 		addKeyListener(this);
@@ -57,14 +58,16 @@ public class Panel extends JPanel implements KeyListener{
 	public void paintComponent(Graphics page) {
 		super.paintComponent(page);
 		
-		 for(int i = 0; i<30;i++) {
-		    	page.drawImage(itemIcon1.getImage(), itemXarray[i], itemYarray[i], 40, 40, null);
+		 for(int i = 0; i<itemArray.length;i++) {
+		    	page.drawImage(itemIcon1.getImage(), itemArray[i].getX(), itemArray[i].getY(), 20, 20, null);
 
 		}
 		 
+		 
+		 
+		 
 		page.drawImage(myIcon.getImage(), myPlayer.getX(), myPlayer.getY(), 40, 40, null);
 		page.drawImage(myMonsterIcon.getImage(), myMonster.getX(), myMonster.getY(), 55, 55, null);
-		
 		//borders
 		page.setColor(Color.black);
 		page.fillRect(0, 0, 3, 797);//x y width height
@@ -120,8 +123,17 @@ public class Panel extends JPanel implements KeyListener{
 			else if(myPlayer.getY() < myMonster.getY()) {
 				myMonster.setY(myMonster.getY() - 20);
 			}
+		
 			
+//			for(int i = 0; i<itemArray.length;i++) {
+				if(myPlayer.getX() == myMonster.getX() && myPlayer.getY() == myMonster.getY()) {
+					System.out.println("you got it bb");
+				}
+				
+		//	}
 			repaint();
 		}
 	}
+	
+	
 }
