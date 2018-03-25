@@ -28,11 +28,14 @@ public class Panel extends JPanel implements KeyListener {
 	Monster myMonster = new Monster("Bowser", 700, 500, "./src/Bowser.jpg");
 	ImageIcon myMonsterIcon = new ImageIcon(myMonster.getImagePath());
 	ImageIcon myIcon = new ImageIcon(myPlayer.getImagePath());
-	ImageIcon myItemIcon = new ImageIcon("./src/Game/goldCoin.jpg");
+
+	ImageIcon myItemIcon = new ImageIcon("./src/Coin.png");
+
 	Timer myTimer = new Timer(200, new TimerListener());
 	Rectangle m;
 	Rectangle p;
 	Rectangle i;
+
 	int score1 = 0;
 	int highScore = 0;
 	int itemsCollected = 0;
@@ -43,12 +46,12 @@ public class Panel extends JPanel implements KeyListener {
 	Rectangle[] myItemIcons = new Rectangle[myItems.length];
 
 	
+
 	public Panel() {
 		setPreferredSize(new Dimension(800, 800));
 		setBackground(Color.white);
 
 		if(play) {
-	
 			for (int i = 0; i < myItems.length; i++) {
 				Item myItem2 = new Item("Coin", 10, myRand.nextInt(max - min) + min, myRand.nextInt(max - min) + min,
 						"./src/Coin.png");
@@ -70,6 +73,7 @@ public class Panel extends JPanel implements KeyListener {
 			m = new Rectangle(myMonster.getX(), myMonster.getY(), 55, 55);
 			
 			if(itemsCollected == myItemIcons.length) {
+
 				myTimer.stop();
 				
 				System.out.println(numItems);
@@ -95,7 +99,6 @@ public class Panel extends JPanel implements KeyListener {
 				}
 		
 				
-				
 				myPlayer.setX(1000);
 				myMonster.setY(1000);
 				
@@ -117,10 +120,12 @@ public class Panel extends JPanel implements KeyListener {
 				
 				page.drawImage(myIcon.getImage(), myPlayer.getX(), myPlayer.getY(), 40, 40, null);
 				page.drawImage(myMonsterIcon.getImage(), myMonster.getX(), myMonster.getY(), 55, 55, null);
+
 				page.setColor(Color.BLACK);
 				page.setFont(new Font("serif", Font.BOLD, 20));
 				page.drawString("Level: " + level,700 , 50);
 				page.drawString("Score:" + myGame.getScore(), 700, 100);
+
 	
 				// borders
 				page.setColor(Color.black);
@@ -131,6 +136,7 @@ public class Panel extends JPanel implements KeyListener {
 	
 			}
 			else if(m.intersects(p)){
+
 				myTimer.stop();
 				numItems = 5;
 				level = 1;
@@ -152,6 +158,7 @@ public class Panel extends JPanel implements KeyListener {
 					page.drawString("" + highScore, 300, 450);
 				}
 				
+
 			}
 		}
 	}
@@ -175,6 +182,7 @@ public class Panel extends JPanel implements KeyListener {
 		}
 		
 		if(arg0.getKeyCode() == KeyEvent.VK_ENTER) {
+
 			myTimer.start();
 			pauseGame = 0;
 			myItems = new Item[numItems];
@@ -214,8 +222,9 @@ public class Panel extends JPanel implements KeyListener {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			
-			if(m.intersects(p) || itemsCollected == myItemIcons.length) {
+
+				if(m.intersects(p) || itemsCollected == myItemIcons.length) {
+
 					myMonster.setX(myMonster.getX());
 					myMonster.setY(myMonster.getY());
 					
@@ -239,6 +248,5 @@ public class Panel extends JPanel implements KeyListener {
 			repaint();
 		}
 	}
-	
-	
 }
+

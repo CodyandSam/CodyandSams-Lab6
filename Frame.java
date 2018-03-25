@@ -12,6 +12,7 @@ public class Frame {
 		Panel myPanel = new Panel();
 		myFrame.getContentPane().add(myPanel);
 		
+		myFrame.setResizable(false);
 		myFrame.pack();
 		myFrame.setVisible(true);
 	}
